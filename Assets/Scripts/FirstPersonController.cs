@@ -215,11 +215,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
             // set the desired speed to be walking or running
-			if (Input.GetKey ("c")) {
-				this.transform.localScale = new Vector3 (1.0f, 0.5f, 1.0f);
+			if (Input.GetKey (KeyCode.C)) {
+				transform.localScale = new Vector3 (1.0f, 0.5f, 1.0f);
 				speed = m_IsWalking ? m_WalkSpeed * 0.25f : m_RunSpeed;
 			} else {
-				this.transform.localScale = new Vector3 (1.0f, 1.0f, 1.0f);
+				transform.localScale = new Vector3 (1.0f, 1.0f, 1.0f);
 				speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
 			}
             m_Input = new Vector2(horizontal, vertical);
