@@ -7,6 +7,8 @@ public class GunController : MonoBehaviour {
 	GameObject bulletObj;
 	public Camera camera;
 	AudioSource audioBullet;
+	int bulletCount = 30;
+	int bulletBoxCount = 150;
 	// Use this for initialization
 	void Start () {
 		audioBullet = GetComponent<AudioSource> ();
@@ -15,21 +17,22 @@ public class GunController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		bulletInterval += Time.deltaTime;
-		if(Input.GetMouseButton(0) && bulletInterval > 0.1f){
+		if(Input.GetMouseButton(0) && bulletInterval > 0.1f && bulletCount > 0){
 			GenerateBullet ();
-
 		}
-
 
 	}
 
 	void GenerateBullet(){
+		bulletCount--;
+		GameObject gunEffect = Resources.Load<GameObject> ("Effects/BulletEffect");
 		Ray ray = new Ray(camera.transform.position, camera.transform.forward);
+		audioBullet.Play ();
 		RaycastHit hit = new RaycastHit();
+		Instantiate (gunEffect, transform.position + ray.direction * 0.9f + new Vector3(0,0.1f,0), Quaternion.identity);
 		if (Physics.Raycast (ray, out hit, Mathf.Infinity)) {
 			bulletObj = Resources.Load<GameObject> ("Effects/BulletEffect");
 			Instantiate (bulletObj, hit.point - ray.direction, Quaternion.identity);
-			audioBullet.Play ();
 		}
 		bulletInterval = 0.0f;
 	}
