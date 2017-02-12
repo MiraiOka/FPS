@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour {
 	float bulletInterval = 0.0f;
-	GameObject bulletObj;
 	public Camera camera;
-	AudioSource audioBullet;
 	int bulletCount = 30;
 	int bulletBoxCount = 150;
+	public GameObject gunEffect;
+	AudioSource audioBullet;
+	public AudioClip audioClip;
 	// Use this for initialization
 	void Start () {
 		audioBullet = GetComponent<AudioSource> ();
@@ -25,14 +26,12 @@ public class GunController : MonoBehaviour {
 
 	void GenerateBullet(){
 		bulletCount--;
-		GameObject gunEffect = Resources.Load<GameObject> ("Effects/BulletEffect");
 		Ray ray = new Ray(camera.transform.position, camera.transform.forward);
-		audioBullet.Play ();
+		audioBullet.PlayOneShot (audioClip);
 		RaycastHit hit = new RaycastHit();
 		Instantiate (gunEffect, transform.position + ray.direction * 0.9f + new Vector3(0,0.1f,0), Quaternion.identity);
 		if (Physics.Raycast (ray, out hit, Mathf.Infinity)) {
-			bulletObj = Resources.Load<GameObject> ("Effects/BulletEffect");
-			Instantiate (bulletObj, hit.point - ray.direction, Quaternion.identity);
+			Instantiate (gunEffect, hit.point - ray.direction, Quaternion.identity);
 		}
 		bulletInterval = 0.0f;
 	}

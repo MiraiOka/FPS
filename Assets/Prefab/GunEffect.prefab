@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198228590942955364}
   - component: {fileID: 199660145568520684}
   m_Layer: 0
-  m_Name: BulletEffect
+  m_Name: GunEffect
   m_TagString: effect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
