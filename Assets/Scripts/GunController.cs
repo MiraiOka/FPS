@@ -46,7 +46,7 @@ public class GunController : MonoBehaviour {
 	}
 
 	IEnumerator Reload(){
-		int addBullet = (30 - bulletCount);//増やす予定の弾数
+		int addBullet = (30 - bulletCount);
 		if (bulletBoxCount < addBullet) {
 			bulletCount += bulletBoxCount;
 			bulletBoxCount = 0;
