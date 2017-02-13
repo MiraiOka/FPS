@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour {
 	float bulletInterval = 0.0f;
-	public Camera camera;
+	[SerializeField] Camera camera;
 	int bulletCount = 30;
 	int bulletBoxCount = 150;
-	public GameObject gunEffect;
+	[SerializeField] GameObject gunEffect;
 	AudioSource audioBullet;
-	public AudioClip audioBulletClip;
+	[SerializeField] AudioClip audioBulletClip;
 	AudioSource audioReload;
-	public AudioClip audioReloadClip;
+	[SerializeField] AudioClip audioReloadClip;
 	bool isRoad;
 	// Use this for initialization
 	void Start () {
