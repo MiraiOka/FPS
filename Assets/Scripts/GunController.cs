@@ -13,12 +13,8 @@ public class GunController : MonoBehaviour {
 	AudioSource audioReload;
 	[SerializeField] AudioClip audioReloadClip;
 	bool isRoad;
-
+	public static RaycastHit hit;
 	public static bool isHit;
-	int score = 0;
-	[SerializeField] GameObject headMarker;
-	[SerializeField] GameObject pCube1;
-	[SerializeField] GameObject pCylinder1;
 
 	// Use this for initialization
 	void Start () {
@@ -44,21 +40,12 @@ public class GunController : MonoBehaviour {
 		bulletCount--;
 		Ray ray = new Ray(camera.transform.position, camera.transform.forward);
 		audioBullet.PlayOneShot (audioBulletClip);
-		RaycastHit hit = new RaycastHit();
+		hit = new RaycastHit();
 		Instantiate (gunEffect, transform.position + ray.direction * 0.9f + new Vector3(0,0.1f,0), Quaternion.identity);
 
 		if (Physics.Raycast (ray, out hit, Mathf.Infinity)) {
-			if (hit.collider.gameObject.tag == "target") {
+			if(hit.collider.gameObject.tag == "target"){
 				isHit = true;
-				if (Target.isStand) {
-					if (hit.collider.gameObject == headMarker) {
-						score += 100;
-					} else if (hit.collider.gameObject == pCube1) {
-						score += 50;
-					} else if (hit.collider.gameObject == pCylinder1) {
-						score += 20;
-					}
-				}
 			}
 			Instantiate (gunEffect, hit.point - ray.direction, Quaternion.identity);
 		}
