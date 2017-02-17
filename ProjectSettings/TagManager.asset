@@ -6,6 +6,7 @@ TagManager:
   tags:
   - nodecal
   - effect
+  - target
   layers:
   - Default
   - TransparentFX

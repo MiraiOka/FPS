@@ -13,12 +13,15 @@ public class GunController : MonoBehaviour {
 	AudioSource audioReload;
 	[SerializeField] AudioClip audioReloadClip;
 	bool isRoad;
+	public static RaycastHit hit;
+	public static bool isHit;
+
 	// Use this for initialization
 	void Start () {
 		audioBullet = GetComponent<AudioSource> ();
 		audioReload = GetComponent<AudioSource> ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		bulletInterval += Time.deltaTime;
@@ -37,9 +40,13 @@ public class GunController : MonoBehaviour {
 		bulletCount--;
 		Ray ray = new Ray(camera.transform.position, camera.transform.forward);
 		audioBullet.PlayOneShot (audioBulletClip);
-		RaycastHit hit = new RaycastHit();
+		hit = new RaycastHit();
 		Instantiate (gunEffect, transform.position + ray.direction * 0.9f + new Vector3(0,0.1f,0), Quaternion.identity);
+
 		if (Physics.Raycast (ray, out hit, Mathf.Infinity)) {
+			if(hit.collider.gameObject.tag == "target"){
+				isHit = true;
+			}
 			Instantiate (gunEffect, hit.point - ray.direction, Quaternion.identity);
 		}
 		bulletInterval = 0.0f;
