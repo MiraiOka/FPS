@@ -8883,9 +8883,6 @@ MonoBehaviour:
   gunEffect: {fileID: 1266942174595292, guid: c50ef1c4bad954297906ba0d80d16bbb, type: 2}
   audioBulletClip: {fileID: 8300000, guid: 8602b7d5cd15c1943a50aa53f171c8cf, type: 3}
   audioReloadClip: {fileID: 8300000, guid: 3c5c1d4d7b9307c458890a4beb12e4ae, type: 3}
-  headMarker: {fileID: 328331028}
-  pCube1: {fileID: 776315814}
-  pCylinder1: {fileID: 772631928}
 --- !u!82 &569816923
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24953,7 +24950,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400192, guid: 70bd327581f110b4a936db6df5f9ed54, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1622421762}
-  m_LocalRotation: {x: 0.6122276, y: -0.36693394, z: -0.59888977, w: -0.3631361}
+  m_LocalRotation: {x: 0.6122277, y: -0.36693397, z: -0.5988898, w: -0.36313614}
   m_LocalPosition: {x: -6.393426, y: 1.3832966, z: 2.7329824}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -28166,6 +28163,49 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1776363275}
   m_Mesh: {fileID: 4300204, guid: 70bd327581f110b4a936db6df5f9ed54, type: 3}
+--- !u!1 &1782075595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1782075597}
+  - component: {fileID: 1782075596}
+  m_Layer: 0
+  m_Name: ScoreController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1782075596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1782075595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2904d7bcf0f4928a7600323ddde9b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headMarker: {fileID: 328331028}
+  pCube1: {fileID: 776315814}
+  pCylinder1: {fileID: 772631928}
+--- !u!4 &1782075597
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1782075595}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 192.87, y: 5.145401, z: 127.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1782693084 stripped
 Transform:
   m_PrefabParentObject: {fileID: 430804, guid: c5efb91b3cd7d444ab9b3c4eb3f405e6, type: 2}
