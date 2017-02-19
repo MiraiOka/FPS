@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreController : MonoBehaviour {
-	int score = 0;
+	public static int score = 0;
 	[SerializeField] GameObject headMarker;
 	[SerializeField] GameObject pCube1;
 	[SerializeField] GameObject pCylinder1;
@@ -24,7 +24,6 @@ public class ScoreController : MonoBehaviour {
 				} else if (GunController.hit.collider.gameObject == pCylinder1) {
 					score += 20;
 				}
-				print (score);
 			}
 		}
 	}
