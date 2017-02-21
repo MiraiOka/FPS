@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -27,6 +28,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+		[SerializeField] Image snipe;
+		[SerializeField] Camera playerCamera;
+		[SerializeField] Image reticle1;
+		[SerializeField] Image reticle2;
+		[SerializeField] Image reticle3;
+		[SerializeField] Image reticle4;
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -81,6 +88,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+
+			if (Input.GetMouseButtonDown (1)) {
+				ChangeSnipeMode ();
+			}
         }
 
 
@@ -261,5 +272,24 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
+
+		void ChangeSnipeMode(){
+			if (snipe.enabled) {
+				snipe.enabled = false;
+				reticle1.enabled = true;
+				reticle2.enabled = true;
+				reticle3.enabled = true;
+				reticle4.enabled = true;
+				playerCamera.GetComponent<Camera> ().fieldOfView = 60;
+			} else {
+				snipe.enabled = true;
+				reticle1.enabled = false;
+				reticle2.enabled = false;
+				reticle3.enabled = false;
+				reticle4.enabled = false;
+				playerCamera.GetComponent<Camera> ().fieldOfView = 30;
+			}
+		}
     }
+
 }
