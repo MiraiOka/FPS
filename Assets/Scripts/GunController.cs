@@ -5,8 +5,8 @@ using UnityEngine;
 public class GunController : MonoBehaviour {
 	float bulletInterval = 0.0f;
 	[SerializeField] Camera camera;
-	int bulletCount = 30;
-	int bulletBoxCount = 150;
+	public static int bulletCount = 30;
+	public static int bulletBoxCount = 150;
 	[SerializeField] GameObject gunEffect;
 	AudioSource audioBullet;
 	[SerializeField] AudioClip audioBulletClip;
