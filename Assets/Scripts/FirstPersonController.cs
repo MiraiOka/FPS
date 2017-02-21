@@ -280,16 +280,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				reticle2.enabled = true;
 				reticle3.enabled = true;
 				reticle4.enabled = true;
-				playerCamera.GetComponent<Camera> ().fieldOfView = 60;
+				playerCamera.fieldOfView = 60.0f;
 			} else {
 				snipe.enabled = true;
 				reticle1.enabled = false;
 				reticle2.enabled = false;
 				reticle3.enabled = false;
 				reticle4.enabled = false;
-				playerCamera.GetComponent<Camera> ().fieldOfView = 30;
+				playerCamera.fieldOfView = 30.0f;
 			}
 		}
+
     }
 
 }
